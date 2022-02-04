@@ -1,0 +1,10 @@
+{
+  "coc.preferences.colorSupport": true,
+
+  "snippets.ultisnips.directories":
+  [
+    "UltiSnips",
+    "~/.config/nvim/utils/snips"
+  ]
+
+}
