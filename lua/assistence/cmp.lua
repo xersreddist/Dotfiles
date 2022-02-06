@@ -10,7 +10,6 @@ local feedkey = function(key, mode)
 end
 
 local cmp = require'cmp'
-local lspkind = require ('lspkind')
 
 cmp.setup({
   snippet = {
@@ -60,17 +59,7 @@ cmp.setup({
 cmp.setup.cmdline('/', {
   sources = {
     { name = 'buffer' },
-  },
-  formatting = {
-    format = lspkind.cmp_format({
-      with_text = false, -- do not show text alongside icons
-      maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-
-      before = function (entry, vim_item)
-        return vim_item
-      end
-    })
-  },
+  }
 })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
@@ -80,49 +69,4 @@ cmp.setup.cmdline(':', {
   }, {
     { name = 'cmdline' }
   })
-})
-
-require('lspkind').init({
-    -- enables text annotations
-    --
-    -- default: true
-    with_text = true,
-
-    -- default symbol map
-    -- can be either 'default' (requires nerd-fonts font) or
-    -- 'codicons' for codicon preset (requires vscode-codicons font)
-    --
-    -- default: 'default'
-    preset = 'codicons',
-
-    -- override preset symbols
-    --
-    -- default: {}
-    symbol_map = {
-      Text = "",
-      Method = "",
-      Function = "",
-      Constructor = "",
-      Field = "ﰠ",
-      Variable = "",
-      Class = "ﴯ",
-      Interface = "",
-      Module = "",
-      Property = "ﰠ",
-      Unit = "塞",
-      Value = "",
-      Enum = "",
-      Keyword = "",
-      Snippet = "",
-      Color = "",
-      File = "",
-      Reference = "",
-      Folder = "",
-      EnumMember = "",
-      Constant = "",
-      Struct = "פּ",
-      Event = "",
-      Operator = "",
-      TypeParameter = ""
-    },
 })
